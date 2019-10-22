@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Board from './components/Board';
+import solveSudoku from './boardLogic/solveSudoku';
+import provideBoard from './boardLogic/provideBoard';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const board = provideBoard();
+const solvedBoard = solveSudoku(board);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const colors = {
+  mainBackground: 'rgb(37, 43, 57)',
+  activeColor: 'rgba(32, 100, 109, .4)',
+  numbers: 'white',
+  placedNum: 'lightskyblue',
+  clickedNum: 'gold',
+  wrongNum: 'salmon',
+  borders: 'powderblue',
+  clickedPlace: 'rgba(32, 178, 170, .4)',
+  noteColor: 'lightgrey',
+}
+
+ReactDOM.render(<Board
+  board={board}
+  solvedBoard={solvedBoard}
+  colors={colors}
+/>, document.getElementById('root'));
