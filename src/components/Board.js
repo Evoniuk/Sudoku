@@ -22,6 +22,7 @@ export default class Board extends React.Component {
       clickedRow: -1,
       clickedColumn: -1,
     }
+
     this.colors = props.colors;
     this.shiftPressed = false;
 

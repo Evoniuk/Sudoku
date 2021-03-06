@@ -1,4 +1,4 @@
-// TODO: have this function actually solve a board given to it
+// TODO: have this function actually solve the board given to it
 export default function solveSudoku(board) {
   return [
     [8,7,3,4,1,5,9,6,2],
